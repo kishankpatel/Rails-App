@@ -1,0 +1,15 @@
+<div></div>
+<div class="login_table">
+		<%= form_tag(:controller => "user", :action => "validate_user", :method => "post") do %>
+			<%= text_field_tag :user_name,"", :placeholder =>'Username', :class => "input_text" %> <br>
+			<%= password_field_tag "password","", :placeholder => "Password", :class => "input_text" %><br>
+			<%= submit_tag "Login", :class => "green_btn" %><br>
+		<% end %>
+</div>
+<!-- <div class="login_table">
+		<form action="validate_user" method="post">
+			<input type="text" name="user_name" placeholder="Username" class="input_text">
+			<input type="password" name="password" placeholder="Password" class="input_text">
+			<input type="submit" value="Login" class="green_btn">
+		</form>
+</div> -->

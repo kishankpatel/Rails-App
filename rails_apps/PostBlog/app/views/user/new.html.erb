@@ -1,0 +1,44 @@
+<table class="new_table">
+<div>
+	<%= form_for @user, url: "/create" do |f| %> 
+		<tr>
+			<td>Name: </td>
+			<td><%= f.text_field :name, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Username : </td>
+		    <td><%= f.text_field :user_name, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Password : </td>
+		    <td><%= f.password_field :password, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Confirm Password : </td>
+		    <td><%= f.password_field :password_confirmation, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<td>Age : </td>
+			<td><%= f.text_field :age, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Email : </td>
+		    <td><%= f.text_field :email, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>    
+		    <td>Phoneno : </td>
+		    <td><%= f.text_field :phone_no, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<td>Address : </td>
+			<td><%= f.text_field :address, class: 'input_text', required: true %></td>
+		</tr>
+		<br>
+		<tr>
+			<td style="text-align: center" colspan="2">
+		    	<%= f.submit class: 'green_btn'%>
+		    	<a href="home"><%= button_tag "Cencel", class: 'green_btn'%></a>
+		    </td>
+		</tr>
+	<% end %>
+</table>

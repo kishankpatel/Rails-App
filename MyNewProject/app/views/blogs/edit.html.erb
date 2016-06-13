@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<style type="text/css" rel="stylesheet">
+		.login_table{margin: 10px auto;background: #999;padding: 50px 20px;border-radius:5px;}
+		.input_text{height: 20px;width: 150px;border-radius: 5px;}
+		.pdn_txt{border-radius: 5px;padding: 3px;font-size:15px;margin-bottom: 10px}
+		.ctr{text-align: center;}
+		.login_cencle_btn{margin-top: 10px;padding: 5px 7px;background: #048004;font-size: 15px;border: none;border-radius: 5px;color: #fff}
+		.login_cencle_btn:hover{cursor: pointer;background: #065606;}
+		tr > td:first-of-type{text-align:right;font-size:20px}
+		tr{line-height: 45px}
+		#footer {margin-top: 30px;}
+		#error_explanation{min-width: 200px;margin-left: 50px;color: red}
+		body{height: 700px;width: 100%; background-image: url("assets/wal.jpg");background-size: 100% 100%;text-align: center;background-repeat: no-repeat;}
+	</style>
+	<script type="text/javascript">
+		$("#hed").html("Registration page");
+	</script>
+</head>
+<body>
+	<%= form_for @user, url: "/blogs/update/#{@user.id}", method: :patch do |f| %>
+		<% if @user.errors.any? %>
+			<div id="error_explanation">
+			    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+			      this user from being saved:</h2>
+			    <ul>
+			    <% @user.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			</div>
+			
+	  	<% end %>
+		<table class="login_table">
+			<tr>
+				<td>Name: </td>
+				<td><%= f.text_field :name, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+			    <td>Email : </td>
+			    <td><%= f.text_field :email, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+			    <td>Username : </td>
+			    <td><%= f.text_field :username, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+			    <td>Password : </td>
+			    <td><%= f.password_field :password, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+			    <td>Confirm Password : </td>
+			    <td><%= f.password_field :password_confirmation, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<td>Age : </td>
+				<td><%= f.text_field :age, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>    
+			    <td>Phoneno : </td>
+			    <td><%= f.text_field :phoneno, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<td>Address : </td>
+				<td><%= f.text_field :address, class: 'input_text', required: true %></td>
+			</tr>
+			<br>
+			<tr>
+				<td style="text-align: center">
+			    	<%= f.submit 'Update', class: 'login_cencle_btn'%>
+			    </td>
+			    <td style="text-align: center">
+			    	<a href="listing"><%= button_tag "Cencel", class: 'login_cencle_btn'%></a>
+			    </td>
+			</tr>
+		</table>
+	<% end %>
+</body>
+</html>

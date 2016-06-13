@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookbook</title>
+  <%= stylesheet_link_tag    'bootstarp.min', 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  	body{width: 100%;	
+  		background-image: url("assets/wal.jpg");
+  		background-size: 100% 100%;
+  		text-align: center;
+  	}
+  	.book_table,.book_show{
+  		background: #88D4B9;
+		opacity: 0.9;
+		color: #000;
+		text-align: left;
+		}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

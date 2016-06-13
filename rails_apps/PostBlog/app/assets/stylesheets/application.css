@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body{height: 640px;
+    width: 100%;
+    background-color: #999;
+    background-image: url("/images/wal.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+    background-repeat: no-repeat;
+  }
+  	table{
+      border-collapse: collapse;
+      background-color: #19CBB1,
+      color:#0D6C5E;
+      border: 1px solid #0D6C5E;
+      border-radius: 5px;
+      padding: 150px;
+    }
+  	tr td:first-of-type{
+      text-align: right;
+      font-size:20px;
+    }
+  	td > input,.input_text{
+      border-radius: 5px;
+      padding: 2px;
+      font-size: 18px;
+      color: #0D6C5E;
+    }
+  	.input_text{margin: 10px;}
+  	.login_table,.new_table{
+      margin: 50px auto;
+      background-color: #19CBB1;
+      color:#004137;
+      border-radius: 5px;
+      text-align: center;
+      background: #179b87;
+      padding: 30px
+    }
+    .login_table{width: 288px;}
+  	.green_btn{background: green;
+		border: 1px solid #0D6C5E;
+		padding: 4px 10px;
+		color: #fff;
+		border-radius: 3px;
+		margin-top: 25px;
+	}

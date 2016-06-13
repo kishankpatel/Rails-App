@@ -1,0 +1,55 @@
+<html>
+<head>
+	<style type="text/css" rel="stylesheet">
+		.login_table{margin: 10px auto;background: #999;padding: 50px 20px;border-radius:5px;}
+		.input_text{height: 15px;width: 100px}
+		.pdn_txt{border-radius: 5px;padding: 3px;font-size:15px;margin-bottom: 10px}
+		.ctr{text-align: center;}
+		.login_btn{margin-top: 10px;padding: 5px 7px;background: green;font-size: 15px;border: none;border-radius: 5px;color: #fff}
+		.login_btn:hover{cursor: pointer;background: #006200;}
+		#err{color: red;font-style: italic;margin: 20px auto;width: 230px;}
+		#logout_msg,#saved_msg{color: blue;font-style: italic;margin: 20px auto;width: 400px;}
+		#invalid_user_msg{color: red;font-style: italic;margin: 20px auto;width: 475px;}
+		#hed {margin-left: 600px;}
+		body{height: 640px;width: 100%;	background-image: url("assets/walpaper.jpg");background-size: 100% 100%;text-align: center;}
+		#footer{margin-top: 235px}
+	</style>
+	<script type="text/javascript">
+		$("#hed").html("Login page");
+	</script>
+</head>
+
+<body bgcolor="#ddd">
+	<div >
+
+		<!--<form action="check_user" method="post">-->
+		<%= form_tag("/check_user", method: "post") do %>
+			<table class="login_table">
+			<h2 id="err"><%= flash[:error] %></h2>
+			<h2 id="logout_msg"><%= flash[:notice] %></h2>
+			<h2 id="invalid_user_msg"><%= flash[:invalid_user_msg] %></h2>
+			<h2 id="saved_msg"><%= flash[:saved_msg] %></h2>
+				<caption>Login Here..</caption>	
+				<tr>
+					<td colspan="2" class="input_text">
+						<!--<input type="text" name="username" placeholder="User Name" class="pdn_txt">-->
+						<!--<%= text_field_tag 'username', nil, maxlength: 30, class: "pdn_txt", placeholder: 'User Name' %>-->
+						<%= text_field_tag :username, nil, maxlength: 30, class: "pdn_txt", placeholder: 'User Name', :required => true %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<!--<input type="password" name="password" placeholder="Password" class="pdn_txt">-->
+						<%= password_field_tag 'password', nil, maxlength: 10, class: "pdn_txt" , placeholder: 'Password', required: true %>
+					</td>
+				</tr>
+				<tr class="ctr">
+					<td colspan="2" >
+						<input type="submit" class ="login_btn" name="submit" value="Submit" >
+					</td>
+				</tr>
+			</table>
+		<% end %>
+		<!--</form>-->
+</body>
+</html>

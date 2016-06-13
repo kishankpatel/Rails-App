@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css" rel="stylesheet">
+    .tbl{
+      margin: 10px auto;
+      background: #E7FFF7;
+      padding: 50px 20px;
+      box-shadow: -10px 10px 11px #016980;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    table, td, th {
+      border: 2px solid #94F8ED;
+    }
+    th{font-weight: bold;padding: 5px;font-size: 20px}
+    td{padding: 15px;font-size: 20px}
+    .table_container{background-color: #94F8ED;padding: 20px;}
+    #footer{margin: 0}
+  </style>
+  <script type="text/javascript">
+    $("#hed").html("Listing Page");
+  </script>
+</head>
+<body>
+<div class="table_container">
+   <table class="tbl">
+                  <tr>
+                     <th>
+                          User_id
+                     </th>
+                      <th>
+                        Order_name
+                      </th>
+                      <th>
+                        Name
+                      </th>
+                <% @orders.each do |u| %>
+                  <tr>
+                       <td>
+                          <%=u.user_id%>
+                       </td>  
+                       <td>
+                         <%=u.order_name%>
+                       </td>
+                       <td><%=u.user.name%></td>
+                       <td><%= link_to 'Edit', "/edit/#{u.id}" %></td>
+                       <td><%= link_to 'Delete', "/delete/#{u.id}" ,method: :destroy ,data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+               </table>
+</div>
+</body>
+</html>

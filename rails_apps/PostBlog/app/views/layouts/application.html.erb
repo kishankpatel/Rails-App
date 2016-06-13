@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PostBlog</title>
+  <%= stylesheet_link_tag   'bootstrap.min', 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="header">
+	<% if !session[:user_name].present? %>
+		<a href="/login"><input type="button" name="Login" value="Login" class="green_btn"></a>
+		<a href="/new"><input type="button" name="Signup" value="Signup" class="green_btn"></a>
+	<% else %>
+    	<a href="/logout"><input type="button" name="Login" value="Logout" class="green_btn"></a>
+		<a href="/listing"><input type="button" name="Signup" value="Listing" class="green_btn"></a>
+  <% end %>
+</div>
+<%= yield %>
+<div class="footer">
+	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

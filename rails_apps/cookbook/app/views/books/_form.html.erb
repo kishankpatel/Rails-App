@@ -1,0 +1,36 @@
+<% content_for :for_head do %>
+  
+<% end %>
+<%= form_for @book, url: @book.id.present? ? "update/#{@book.id}" : "save", method: 'post', remote: !@book.id.present? ? true : false do |f| %>
+	<table class="book_table">
+	<caption><h2>Register book here..</h2></caption>
+		<tr>
+			<td>Name: </td>
+			<td><%= f.text_field :name, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Title : </td>
+		    <td><%= f.text_field :title, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Author : </td>
+		    <td><%= f.text_field :author, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+		    <td>Privacy : </td>
+		    <td>
+				<%= f.select "privacy", "<option>Private</option><option>Public</option><option>Global</option>".html_safe %>
+		    </td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: center">
+			<% if !@book.id.present? %>
+		    	<%= f.submit 'Register Book'%>
+		    <% else %>
+		    	<%= f.submit 'Update Book'%>
+		    <% end %>
+		    </td>
+		</tr>
+	</table>
+
+<% end %>

@@ -1,0 +1,21 @@
+<html>
+<head>
+	<style type="text/css">
+		body{height: 640px;width: 100%;	background-image: url("assets/wal.jpg");background-size: 100% 100%;text-align: center;}
+		h1{margin-top: 0;color: green}
+		#footer{margin-top: 447px}
+	</style>
+	<script type="text/javascript">
+		$("#hed").html("Dashboard Page");
+	</script>
+</head>
+<body bgcolor="#ddd">
+	<div id='wrapper'>
+		<h1 style="font-style: bold">Login successful....</h1>
+		<h1>Welcome <%= session[:user] %> to our site..!!</h1> 
+
+		<div id="blog_listing">
+			<%= render(:partial => "blog_list" ,:controller=>"home") %>
+		</div>
+	</div>
+</html>
