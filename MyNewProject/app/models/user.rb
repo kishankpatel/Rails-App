@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :orders, dependent: :destroy
-  has_many :blog, dependent: :destroy
+  has_many :blogs, dependent: :destroy
 
   validates :username, :uniqueness => true
   validates :email, :uniqueness => true

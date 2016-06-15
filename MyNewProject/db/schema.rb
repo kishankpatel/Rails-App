@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609171808) do
+ActiveRecord::Schema.define(version: 20160614071956) do
 
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 20160609171808) do
 
   create_table "comments", force: true do |t|
     t.integer  "blog_id"
-    t.string   "name"
+    t.integer  "user_id"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "public_blog_id"
   end
 
   create_table "orders", force: true do |t|
@@ -36,12 +37,19 @@ ActiveRecord::Schema.define(version: 20160609171808) do
     t.datetime "updated_at"
   end
 
+  create_table "public_blogs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "blog_name"
+    t.text     "blog_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "username"
     t.string   "password"
-    t.string   "confirm_password"
     t.integer  "age"
     t.string   "phoneno"
     t.text     "address"

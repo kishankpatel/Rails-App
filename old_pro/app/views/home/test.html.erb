@@ -1,0 +1,19 @@
+
+<%= form_for :person do |f| %>
+		  First name: <%= f.text_field :first_name %><br />
+		  Last name : <%= f.text_field :last_name %><br />
+		  Biography : <%= f.text_area :biography %><br />
+		  Admin?    : <%= f.check_box :admin %><br />
+		  <%= f.submit %>
+		<% end %>
+
+
+
+<form accept-charset="UTF-8" action="/" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="3fNT/UkbineTJsLpnZRCT2xj42ELPR313pAw6CiP1v4=" /></div>
+		  First name: <input id="person_first_name" name="person[first_name]" type="text" /><br />
+		  Last name : <input id="person_last_name" name="person[last_name]" type="text" /><br />
+		  Biography : <textarea id="person_biography" name="person[biography]">
+</textarea><br />
+		  Admin?    : <input name="person[admin]" type="hidden" value="0" /><input id="person_admin" name="person[admin]" type="checkbox" value="1" /><br />
+		  <input name="commit" type="submit" value="Save Person" />
+</form>

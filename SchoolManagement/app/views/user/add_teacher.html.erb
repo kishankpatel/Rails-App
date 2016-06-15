@@ -1,0 +1,28 @@
+<%= form_for @teacher, url: "/create_teacher" do |f| %> 
+	<table>
+		<tr>
+			<th>Name :</th>
+			<td><%= f.text_field :name, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<th>Age :</th>
+			<td><%= f.text_field :age, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<th>Gender :</th>
+			<td><%= f.text_field :gender, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<th>Mob :</th>
+			<td><%= f.text_field :molile, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<th>Email :</th>
+			<td><%= f.text_field :email, class: 'input_text', required: true %></td>
+		</tr>
+		<tr>
+			<th>Address :</th>
+			<td><%= f.text_area :address, class: 'input_text', required: true %></td>
+		</tr>
+	</table>
+<% end %>

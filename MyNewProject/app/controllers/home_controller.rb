@@ -51,7 +51,6 @@ class HomeController < ApplicationController
 		p  '=============================='
         p params
         if (user = User.where(:username => params[:username], :password => params[:password]).first).present?
-        
         # params[:username] = "1) OR 1=1--"
         # User.all(:conditions => ['title = ?', params[:username]])
         # User.all(:conditions => ["username = ?", params[:username]])

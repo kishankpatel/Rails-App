@@ -3,6 +3,11 @@
 	<table class="blog_table">
 		<caption><h2>Listing</h2></caption>
 		<tr>
+			<td colspan="2" style="text-align: right;"><%= link_to 'Create new Blog', "/new_blog", method: :get %></td>
+		</tr>
+		
+		<tr><td colspan="2">Blog List</td></tr>
+		<tr>
 			<th>
 				Blogs
 			</th>
@@ -13,66 +18,13 @@
 		<% @blogs.each do |item|%>
 			<tr>
 				<td><%= item.blog_name %></td>
-				<td id="load"><%= link_to 'Edit', "/edit/#{item.id}", data: { remote: true, toggle: "modal", target: "#myModal" } %>
-				</td>
+				<!--<td id="load"><%= link_to 'Edit', "/edit_blog/#{item.id}", method: :get %>
+				</td> -->
 	            <td><%= link_to 'Delete', "/delete_blog/#{item.id}" ,method: :delete ,data: { confirm: 'Are you sure?'} %>
 	            </td>
-	            <td ><%= link_to 'Show', "javascript:void(0);", :onclick => "show_blog_detail('#{item.id}')" , method: :get ,data: {toggle: "modal", target: "#showDetails" } %>
+	            <td ><%= link_to 'Comment', "/show_blog/#{item.id}", method: :get  %>
 	            </td>
 			</tr>
 		<% end %>
-
 	</table>
-	
-	<div class="modal fade" id="myModal" role="dialog">
-	    <div class="modal-dialog">
-	    
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Edit Blog</h4>
-	        </div>
-	        <div class="modal-body" id = "edit_content">
-	          
-	        </div>
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        </div>
-	      </div> 
-	    </div>
-	</div>
-	<div class="modal fade" id="showDetails" role="dialog">
-	    <div class="modal-dialog">
-	    
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Details of Blog</h4>
-	        </div>
-	        <div class="modal-body" id = "show_content">
-	          
-	        </div>
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        </div>
-	      </div> 
-	    </div>
-	</div>
 </div>
-<script type="text/javascript">
-	function show_blog_detail(b_id){
-		$("#show_content").html("<div class='loader'></div>");
-		$(".loader").css("display","block");
-		var url = "/show/"+b_id;
-		$.ajax({url: url, success: function(result){
-        	$("#show_content").html(result);
-    	}});
-	}
-	$("#load").click(function(){
-    	$("#edit_content").html("<div class='loader'></div>");
-    	$(".loader").css("display","block");
-	});
-	
-</script>

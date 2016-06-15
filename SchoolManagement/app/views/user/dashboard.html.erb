@@ -1,0 +1,35 @@
+<div class="menu_header">
+	<div class="fl hed">
+		<div class="fl">
+			<%= link_to "Add Student", "/add_student" %>
+			<%= link_to "Add Teacher", "/add_teacher" %>
+			<%= link_to "Add Class", "/add_class" %>
+			<%= link_to "Add Subject", "/add_subject" %>
+		</div>
+		<div class="fr">
+			<a href="/logout"><input type="button" name="Logout" value="Logout" class="green_btn" style="margin: 0"></a>
+		</div>
+		<div class="cb"></div>
+	</div>
+	<div class="cb"></div>
+	<div class="hed list">
+		<%= link_to "List Student", "/list_student" %>
+		<%= link_to "List Teacher", "/list_teacher" %>
+		<%= link_to "List Class", "/list_class" %>
+		<%= link_to "List Subject", "/list_subject" %>
+	</div>
+	<div class="cb"></div>
+	<div class="list_student">
+		<%= render( :partial => "list_student") %>		
+	</div>
+	<div class="list_teacher">
+		<%= render( :partial => "list_teacher") %>		
+	</div>
+	<div class="list_class">
+		<%= render( :partial => "list_class") %>		
+	</div>
+	<div class="list_subject">
+		<%= render( :partial => "list_subject") %>		
+	</div>
+
+</div>

@@ -1,0 +1,31 @@
+
+<div class="container">
+	<table class="blog_table">
+		<caption><h2>Listing</h2></caption>
+		<tr>
+			<td colspan="2" style="text-align: right;"><%= link_to 'Create new Blog', "/new_public_blog", method: :get %>
+			</td>
+		</tr>
+		
+		<tr><td colspan="2">Blog List</td></tr>
+		<tr>
+			<th>
+				Blogs
+			</th>
+			<th colspan="3" style="text-align: center">
+				Action
+			</th>
+		</tr>
+		<% @public_blogs.each do |item|%>
+			<tr>
+				<td><%= item.blog_name %></td>
+				<!--<td id="load"><%= link_to 'Edit', "/edit_public_blog/#{item.id}", method: :get %>
+				</td> -->
+	            <td><%= link_to 'Delete', "/delete_public_blog/#{item.id}" ,method: :delete ,data: { confirm: 'Are you sure?'} %>
+	            </td>
+	            <td ><%= link_to 'Show', "/show_public_blog/#{item.id}", method: :get  %>
+	            </td>
+			</tr>
+		<% end %>
+	</table>
+</div>

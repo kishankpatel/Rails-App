@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LoginApp</title>
+  <%= stylesheet_link_tag   'bootstrap.min', 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+	<style type="text/css" rel="stylesheet">
+		
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id = "logo" class="fl">
+			<a href="home"><%= image_tag("logo.png", id:'logo_img', alt: "Load Error" ) %></a>
+		</div>
+		<div class="fl login_head">
+			<p id="hed"></p>
+		</div>
+		<div class="fr sig_log">
+		  <% if !session[:user].present? %>
+			<a href="/login"><input type="button" name="Login" value="Login" class="signin_login"></a>
+			<a href="/new"><input type="button" name="Signup" value="Signup" class="signin_login"></a>
+		  <% else %>
+		    <a href="/logout"><input type="button" name="Login" value="Logout" class="signin_login"></a>
+			<a href="/listing"><input type="button" name="Signup" value="Listing" class="signin_login"></a>	
+			<a href="/show"><input type="button" name="Signup" value="Orders" class="signin_login"></a>	
+		  <% end %>
+		</div>
+		<div class="cb"></div>
+	</div>
+	
+	
+	<%= yield %>
+
+	<div id="footer">
+		<p id="footer_text"> © Copyright 2016. All Rights Reserved by Xyz.pvt.ltd..</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

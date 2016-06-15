@@ -1,0 +1,17 @@
+<%= form_for @blog, url: "save_blog", method: 'post' do |f| %>
+<table class="login_table">
+	<tr>
+		<td><%f.hidden_field :user_id, :value => @current_user %></td>
+	</tr>
+	<tr>
+		<td><i>Enter Blog name:</i></td>
+		<td><%= f.text_field :blog_name, class: 'input_text', required: true %></td>
+	</tr>
+	<tr>
+		<td><i>Enter Blog description:</i></td>
+		<td><%= f.text_area :blog_description, class: 'input_text', required: true %><br></td>
+	<tr>
+		<td colspan="2" style="text-align:center"><%= f.submit 'Create Blog' %></td>
+	</tr>
+</table>
+<% end %>

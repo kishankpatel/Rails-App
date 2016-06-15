@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+		<script type="text/javascript" >
+			$(document).ready(function () {
+				// body...
+				$("#calculate").click(function(){
+					$("#result").html("");
+					$("#result").append("<b>Addition of <%= @num1 %> and <%= @num2 %> : <%= @addition %><br><br>Substraction of <%= @num1 %> and <%= @num2 %> : <%= @sub %> <br><br>Multiplication of <%= @num1 %> and <%= @num2 %> : <%= @mul %> <br><br>Division of <%= @num1 %> and <%= @num2 %> : <%= @div %> <br><br></b>");
+				});
+			});
+		</script>
+	</head>
+	<body onload="load_values()">
+	
+		<!-- Login Successful...<br>
+		<%=link_to "Home", "/home", :target=>"_blank", :style=>"color:red"%> -->
+		<h2>Results :</h2>   
+		<%=text_field_tag 'txt_field1', @num1 %>
+		<%=text_field_tag 'txt_field2', @num2 %><br><br>
+
+		<input type ="button" id = "calculate" value="Calculate">
+		<p id="result"></p>
+	</body>
+</html>

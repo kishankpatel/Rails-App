@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     #root 'home#calculate_result'
     #root 'home#form'
     resources :users do
-      resources :orders
+      resources :orders,:blogs
     end
     root 'users#home'
     #match '/login', :to => 'users#login', :via => :get
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
    #match '/home', :to => 'home#index', :via => :get
    match '/login', :to => 'home#login', :via => :get
    post '/check_user', to: 'home#check_user', as: :check
-   match '/dashboard', :to => 'home#dashboard', :via => :get
+   # match '/dashboard', :to => 'home#dashboard', :via => :get
    match '/logout', :to => 'home#logout', :via => :get
    match '/write_mail/:id', :to => 'home#write_mail', :via => :get
    match '/send_mail/:id', :to => 'home#send_mail', :via => :post
@@ -41,23 +41,19 @@ Rails.application.routes.draw do
    match '/sanitise', :to => 'home#sanitise', :via => :post
    match '/script_inject', :to => 'home#script_inject', :via => :get
 
-
-   match '/blog_list', :to => 'home#blog_list', :via => :get
-   match '/display/:id', :to => 'home#display', :via => :get
-   match '/delete_blog/:id', :to => 'home#delete_blog', :via => :delete
    
-   match '/blogs/home', :to => 'blogs#home', :via => :get
-   match '/blogs/login', :to => 'blogs#login', :via => :get
-   post '/blogs/check_user', to: 'blogs#check_user', as: :check_user
-   match '/blogs/dashboard', :to => 'blogs#dashboard', :via => :get
-   match '/logout', :to => 'blogs#logout', :via => :get
-   
-
-   
-
-   match '/blogs/edit/:id', :to => 'users#edit', :via => :get
-   match '/blogs/delete/:id', :to => 'users#destroy', :via => :post
-   match '/blogs/update/:id', :to => 'users#update', :via => :patch
+   match '/dashboard', :to => 'blogs#dashboard', :via => :get
+   match '/new_blog', :to => 'blogs#new_blog', :via => :get
+   match '/save_blog', :to => 'blogs#save_blog', :via => :post
+   match '/edit_blog/:id', :to => 'blogs#edit', :via => :get
+   match '/delete_blog/:id', :to => 'blogs#delete_blog', :via => :delete
+   match '/show_blog/:id', :to => 'blogs#show_blog', :via => :get, :as => 'blog'
+   match '/show_blog/save_comment', :to => 'blogs#save_comment', :via => :post
+   match '/update_blog/:id', :to => 'blogs#update', :via => :patch
+   match '/blog_path/:id', :to => 'blogs#blog_path', :via => :get
+   match '/public_blog', :to => 'blogs#public_blog', :via => :get
+   match '/show_public_blog/:id', :to => 'blogs#show_public_blog', :via => :get
+   match '/show_public_blog/save_public_comment', :to => 'blogs#save_comment', :via => :post
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,27 @@
+<table class="blog_show">
+	<caption><h3>Details of <%= @public_blog.blog_name%> :</h3></caption>
+	<tr>
+		<th>
+			Blog :
+		</th>
+		<td><%= @public_blog.blog_name%></td>
+	</tr>
+	<tr>
+		<th>
+			Description :
+		</th>
+		<td><%= @public_blog.blog_description%></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<% @comments.each do |c| %>
+				<p><%= c.user.username %> : <%= c.comment %></p>
+			<% end %>
+			<%= form_for @comment, url: "save_public_comment", method: 'post' do |f| %>
+				<i>Write comment...</i><br>
+					<%= f.text_area :comment, class: 'input_text', required: true %><br>
+					<%= f.submit 'Post comment' %>
+			<% end %>
+		</td>
+	</tr>
+</table>

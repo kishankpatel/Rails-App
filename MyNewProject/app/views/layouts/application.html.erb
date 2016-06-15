@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>LoginApp</title>
-  <%= stylesheet_link_tag   'bootstrap.min', 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application','common', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 	<style type="text/css" rel="stylesheet">
@@ -18,11 +18,12 @@
 			<p id="hed"></p>
 		</div>
 		<div class="fr sig_log">
+			<a href="/public_blog"><input type="button" name="blog" value="BLOG" class="signin_login"></a>
 		  <% if !session[:user].present? %>
 			<a href="/login"><input type="button" name="Login" value="Login" class="signin_login"></a>
 			<a href="/new"><input type="button" name="Signup" value="Signup" class="signin_login"></a>
 		  <% else %>
-		    <a href="/logout"><input type="button" name="Login" value="Logout" class="signin_login"></a>
+		    <a href="/logout"><input type="button" name="Logout" value="Logout" class="signin_login"></a>
 			<a href="/listing"><input type="button" name="Signup" value="Listing" class="signin_login"></a>	
 			<a href="/show"><input type="button" name="Signup" value="Orders" class="signin_login"></a>	
 		  <% end %>

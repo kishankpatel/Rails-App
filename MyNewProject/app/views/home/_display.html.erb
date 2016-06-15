@@ -1,32 +1,32 @@
 <table class="blog_show">
-		<caption><h3>Details of <%= @blog.name%> :</h3></caption>
-		<tr>
-			<th>
-				Blog :
-			</th>
-			<td><%= @blog.blog_name%></td>
-		</tr>
-		<tr>
-			<th>
-				Description :
-			</th>
-			<td><%= @blog.blog_description%></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<%= form_for @comment, url: "save_comment", method: 'post', remote:  true do |f| %>
-					<table class="book_table">
-						<tr>
-							<td>Write comment...</td>
-						</tr>
-						<tr>
-							<td><%= f.text_area :name, class: 'input_text', required: true %></td>
-						</tr>
-						<tr>
-						    <td><%= f.submit 'Post comment' %></td>
-						</tr>
-					</table>
-				<% end %>
-			</td>
-		</tr>
-	</table>
+	<caption><h3>Details of <%= @blog.name%> :</h3></caption>
+	<tr>
+		<th>
+			Blog :
+		</th>
+		<td><%= @blog.blog_name%></td>
+	</tr>
+	<tr>
+		<th>
+			Description :
+		</th>
+		<td><%= @blog.blog_description%></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= form_for @comment, url: "save_comment", method: 'post', remote:  true do |f| %>
+				<table class="book_table">
+					<tr>
+						<td>Write comment...</td>
+					</tr>
+					<tr>
+						<td><%= f.text_area :name, class: 'input_text', required: true %></td>
+					</tr>
+					<tr>
+					    <td><%= f.submit 'Post comment' %></td>
+					</tr>
+				</table>
+			<% end %>
+		</td>
+	</tr>
+</table>

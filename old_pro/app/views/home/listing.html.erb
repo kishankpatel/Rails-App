@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css" rel="stylesheet">
+  body{height: 640px;width: 100%; background-image: url("assets/wal.jpg");background-size: 100% 100%;text-align: center;}
+    .login_table{
+      margin: 10px auto;
+      background: #E7FFF7;
+      padding: 50px 20px;
+      box-shadow: -10px 10px 11px #016980;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    table, td, th {
+      border: 2px solid #94F8ED;
+    }
+    th{font-weight: bold;padding: 5px;font-size: 20px}
+    td{padding: 15px;font-size: 20px}
+    .table_container{background-color: #94F8ED;padding: 20px;}
+    #footer{margin: 0}
+  </style>
+  <script type="text/javascript">
+    $("#hed").html("Listing Page");
+  </script>
+</head>
+<body>
+<p><%= flash[:notice] %></p>
+<div class="table_container">
+  <table class="login_table">
+  <caption><h2>Table Information</h2></caption>
+  <tr>
+      <th>Name</th>  
+      <th>Email</th> 
+      <th>User Name</th>
+      <th>Age</th>
+      <th>Phone No.</th>
+      <th>Address</th>
+      <th colspan="3" style="text-align:center">Action</th>
+    </tr>
+   <% @users.each do |u| %>
+    <tr>
+      <td>
+        <%=u.name%>
+       </td>  
+       <td>
+        <%=u.email%>
+       </td>
+       <td>
+        <%=u.username%>
+       </td>
+       <td>
+        <%=u.age%>
+       </td>
+       <td>
+        <%=u.phoneno%>
+       </td>
+       <td>
+        <%=u.address%>
+       </td>
+       <td><%= link_to 'Edit', "/edit/#{u.id}" %></td>
+       <td><%= link_to 'Delete', "/delete/#{u.id}" ,method: :destroy ,data: { confirm: 'Are you sure?' } %></td>
+       <td><%= link_to 'Send Mail', "/write_mail/#{u.id}" %></td>
+    </tr>
+  <% end %>
+ </table>
+</div>
+</body>
+</html>
