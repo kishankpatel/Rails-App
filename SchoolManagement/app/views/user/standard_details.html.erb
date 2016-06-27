@@ -1,0 +1,16 @@
+<div class="show_content">
+	<%= form_for @standard, url: "create_standard" do |f| %>
+		<%= f.text_field "name" %>
+		<%= f.submit "Submit", :class => "green_btn" %>
+	<% end %>
+	<h3>Standard List</h3>
+	<% @standards.each do |s| %>
+		<p><%= s.name  %>
+			<%= link_to "Edit","/edit_standard/#{s.id}" %>
+			<%= link_to "Delete", "/delete_standard/#{s.id}", method: :delete ,data: { confirm: 'Are you sure?'}%>
+
+			<!--<%=debug s%>-->
+		</p>
+
+	<% end %>
+</div>

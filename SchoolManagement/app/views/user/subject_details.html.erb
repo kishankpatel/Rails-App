@@ -1,0 +1,21 @@
+<div class="show_content">
+	<%= form_for @subject, url: "create_subject" do |f| %>
+	<table>
+		<tr>
+			<td><%= f.text_field "name" %></td>
+			<td><%= f.submit "Submit" %></td>	
+		</tr>
+	</table>
+		
+	<% end %>
+	<h3>Subject Lists</h3>
+	<% @subjects.each do |s| %>
+		<p><%= s.name  %>
+			<%= link_to "Edit","/edit_subject/#{s.id}", :class => "blue_btn" %>
+			<%= link_to "Delete", "/delete_subject/#{s.id}", :class => "red_btn", method: :delete ,data: { confirm: 'Are you sure?'}%>
+
+			<!--<%=debug s%>-->
+		</p>
+
+	<% end %>
+</div>

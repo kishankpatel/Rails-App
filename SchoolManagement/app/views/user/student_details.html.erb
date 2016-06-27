@@ -1,0 +1,19 @@
+<div class="show_content">
+	<div><%= link_to "Add Student", "/add_student"%></div>
+	<div>
+		<table style="width: 400px;">
+			<% @students.each do |s| %>
+				<tr>
+					<th>Name :</th>
+					<td><%= s.name %></td>
+					<th>Roll :</th>
+					<td><%= s.roll %></td>
+					<td><%= link_to "Edit", "/edit_student/#{s.id}", :class => "blue_btn"%></td>
+					<td><%= link_to "Delete", "/delete_student/#{s.id}", :class => "red_btn",:method => "delete",data: { confirm: 'Are you sure?'} %></td>
+					<td><%= link_to "Show Details", "/show_student_details/#{s.id}", :class => "green_btn"%></td>
+				</tr>
+			<% end %>
+		</table>
+		
+	</div>
+</div>

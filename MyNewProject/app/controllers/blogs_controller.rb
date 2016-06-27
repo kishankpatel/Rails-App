@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 	before_action :check_account, only: [:dashboard]
+    include BlogsHelper
+
 	def listing
         @users = User.all.order("id desc")
     end

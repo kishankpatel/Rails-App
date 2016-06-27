@@ -1,0 +1,8 @@
+<div class="show_content">
+	<h3>Assign Subject to Class</h3>
+	<%= form_for @standard_subjects, url: "/save_assign_subject" do |f| %> 
+		<%= f.select("standard_id", Standard.all.collect {|p| [ p.name,p.id ] }) %>
+		<%= f.select("subject_id", Subject.all.collect {|p| [ p.name,p.id ] }, { :prompt => "Please select"}) %>
+		<%= f.submit "Assign"%>
+	<% end %>
+</div>

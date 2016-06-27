@@ -1,7 +1,7 @@
 <div>
 	<h2>Write mail here..</h2>
-	<%= form_for @comment, url: "/send_mail/#{@user.id}", method: :post do |f| %>
-		<%= f.text_field :message, class: 'input_text', required: true %>
-		<%= f.submit 'Send' %>
+	<%= form_tag("/send_mail/#{@user.id}", method: "post") do %>
+		<%= text_area_tag :message,"", :class => 'input_text', :required => true %>
+		<%= submit_tag 'Send' %>
 	<% end %>
 </div>

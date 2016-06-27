@@ -1,0 +1,45 @@
+<div class="show_content">
+	<table class="show_student_details">
+		<caption><u>Details of <%= @student.name %></u></caption>
+		<tr>
+			<td>Name :</td>
+			<td><%= @student.name %></td>
+		</tr>
+		<tr>
+			<td>Roll :</td>
+			<td><%= @student.roll %></td>
+		</tr>
+		<tr>
+			<td>Standard :</td>
+			<td><%= @student.standard %></td>
+		</tr>
+		<tr>
+			<td>Subjects :</td>
+			<td><%= @student.subjects %></td>
+		</tr>
+		<tr>
+			<td>Age :</td>
+			<td><%= @student.gender %></td>
+		</tr>
+		<tr>
+			<td>Gender :</td>
+			<td><%= @student.gender %></td>
+		</tr>
+		<tr>
+			<td>Mobile :</td>
+			<td><%= @student.mobile %></td>
+		</tr>
+		<tr>
+			<td>Email :</td>
+			<td><%= @student.email %></td>
+		</tr>
+		<tr>
+			<td>Address :</td>
+			<td><%= @student.address %></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align:center"><%= link_to "OK", "/student_details", :class => "green_btn"%></td>
+		</tr>
+	</table>
+	
+</div>

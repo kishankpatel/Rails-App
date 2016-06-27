@@ -1,0 +1,2 @@
+class MytestController < ApplicationController
+end

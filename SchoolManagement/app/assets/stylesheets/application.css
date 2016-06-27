@@ -13,23 +13,32 @@
  *= require_tree .
  *= require_self
  */
-
+ .menu_header{
+  background-color: #122D00;
+  border-bottom: 2px solid #0A1800;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+  .menu_header a{color: #ddd;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 50px;
+    font-size: 17px;
+  }
+.student_details{width: 200px;}
  body{
-    height: 640px;
-    width: 100%;
+    position: relative;
     margin: 0;
     background-color: #708661;
-    background-image: url("/images/wal.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+   
   }
   	table{
       border-collapse: collapse;
       background-color: #19CBB1,
       color:#0D6C5E;
       border: 1px solid #0D6C5E;
-      border-radius: 5px;
-      padding: 150px;
     }
   	tr td:first-of-type{
       text-align: right;
@@ -38,12 +47,13 @@
   	td > input,.input_text{
       border-radius: 5px;
       padding: 2px;
-      font-size: 18px;
       color: #0D6C5E;
+      font-size: 18px
     }
+    .show_student_details td{padding: 10px;}
   	.input_text{margin: 10px;}
   	.login_table,.new_table{
-      margin: 50px auto;
+      margin: 60px auto;
       background-color: #19CBB1;
       color:#004137;
       border-radius: 5px;
@@ -51,23 +61,25 @@
       background: #179b87;
       padding: 30px
     }
-    .login_table{width: 288px;}
-  	.green_btn{background: green;
+    .login_table{width: 288px;margin: 160px auto;}
+  	.green_btn,.edit_btn,.delete_btn{
+    background: linear-gradient(green, #2fb02f,green);
 		border: 1px solid #0D6C5E;
 		padding: 4px 10px;
 		color: #fff;
 		border-radius: 3px;
-		margin: 10px;
+		/*margin: 10px;*/
 	}
+
 .hed{background-color: #122D00;border-bottom: 2px solid #0A1800;width: 100%;}
-.header{height:47px;display:block;background-color:#3f3f3f;color:white;box-sizing:border-box;}
+/*.header{height:47px;display:block;background-color:#3f3f3f;color:white;box-sizing:border-box;}*/
 .fl{float:left;}
 .fr{float: right}
 .cb{clear: both}
-.menu_header a{color: #ddd;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 50px;
-    font-size: 17px;
-  }
+a {text-decoration: none}
 .menu_header a:hover {color: #fff;}
+.student_details{width: 200px;}
+
+.show_content{margin: 100px auto;width:26%;background:rgb(171, 188, 158);padding:50px;}
+.blue_btn{background: linear-gradient(#202096,#5b5bb0,#202096);}
+.red_btn{background: linear-gradient(#dd2929,#d86c6c,#dd2929);}

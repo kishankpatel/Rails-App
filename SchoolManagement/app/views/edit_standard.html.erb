@@ -1,0 +1,6 @@
+<div class="show_content">
+	<%= form_for @standard, url: "/update_standard/#{@standard.id}", method: :patch do |f| %>
+		<%= f.text_field "name" %>
+		<%= f.submit "Submit" %>
+	<% end %>
+</div>

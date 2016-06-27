@@ -8,6 +8,27 @@
 </head>
 <body>
 
+<div class="menu_header hed fl">
+	<% if session[:user_name].present? %>
+		<div>
+			<div class="fl">
+				<%= link_to "Student", "/student_details" %>
+				<%#= link_to "Teacher", "/teacher_details" %>
+				<%= link_to "Class", "/standard_details" %>
+				<%= link_to "Subject", "/subject_details" %>
+				<%= link_to "Assign subject", "/assign_subject" %>
+			</div>
+			<div class="fr">
+				<a href="/logout"><input type="button" name="Logout" value="Logout" class="green_btn" style="margin: 0"></a>
+			</div>
+			<div class="cb"></div>
+		</div>
+	<% else %>
+		<%= link_to "Login", "/login",:class => "green_btn" %>
+		<%= link_to "Signup", "/new",:class => "green_btn" %>
+	<% end %>
+</div>
+
 <%= yield %>
 
 </body>

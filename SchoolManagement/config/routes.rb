@@ -15,14 +15,42 @@ Rails.application.routes.draw do
   match '/add_teacher', :to => 'user#add_teacher', :via => :get
   match '/add_class', :to => 'user#add_class', :via => :get
   match '/add_subject', :to => 'user#add_subject', :via => :get
-  
-  match '/create_student', :to => 'user#create_student', :via => :post
+  match '/assign_subject', :to => 'user#assign_subject', :via => :get
+  match '/save_assign_subject', :to => 'user#save_assign_subject', :via => :post
 
   
+  match '/student_details', :to => 'user#student_details', :via => :get
+  match '/show_student_details/:id', :to => 'user#show_student_details', :via => :get
+
+  match '/create_student', :to => 'user#create_student', :via => :post
+  match '/delete_student/:id', :to => 'user#delete_student', :via => :delete
+  match '/edit_student/:id', :to => 'user#edit_student', :via => :get
+
+
+  match '/standard_details', :to => 'user#standard_details', :via => :get
+  match '/create_standard', :to => 'user#create_standard', :via => :post
+  match '/edit_standard/:id', :to => 'user#edit_standard', :via => :get
+  match '/delete_standard/:id', :to => 'user#delete_standard', :via => :delete
+  match '/update_standard/:id', :to => 'user#update_standard', :via => :patch
+
+
+  match '/subject_details', :to => 'user#subject_details', :via => :get
+  match '/create_subject', :to => 'user#create_subject', :via => :post
+  match '/delete_subject/:id', :to => 'user#delete_subject', :via => :delete
+  match '/edit_subject/:id', :to => 'user#edit_subject', :via => :get
+  match '/update_subject/:id', :to => 'user#update_subject', :via => :patch
+
+  
+
+
+
+
+
   match '/list_student', :to => 'user#list_student', :via => :get
   match '/list_teacher', :to => 'user#list_teacher', :via => :get
   match '/list_class', :to => 'user#list_class', :via => :get
-  match '/list_subject', :to => 'user#list_subject', :via => :get
+  match '/list_subjects/:id', :to => 'user#list_subjects', :via => :get
+  
 
 
 

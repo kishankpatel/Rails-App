@@ -1,0 +1,6 @@
+<%= debug @subjects%>
+<%= select_tag("subjects", @subjects.all.collect {|p| [ p.subject_id ] }) %>
+
+
+<%# @yrs =[2011,2010,2009,2008] %>
+<%#= select_tag 'year', options_for_select([["Select" , "2011" ]] + @yrs.to_a,2011) %>

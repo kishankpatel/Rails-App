@@ -11,17 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614095411) do
+ActiveRecord::Schema.define(version: 20160617071522) do
 
-  create_table "class_subject_teachers", force: true do |t|
+  create_table "standard_subjects", force: true do |t|
+    t.integer  "standard_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "standard_subjects", ["standard_id"], name: "index_standard_subjects_on_standard_id", using: :btree
+  add_index "standard_subjects", ["subject_id"], name: "index_standard_subjects_on_subject_id", using: :btree
 
   create_table "standards", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "standards_subjects", force: true do |t|
+    t.integer "standard_id"
+    t.integer "subject_id"
+  end
+
+  add_index "standards_subjects", ["standard_id"], name: "index_standards_subjects_on_standard_id", using: :btree
+  add_index "standards_subjects", ["subject_id"], name: "index_standards_subjects_on_subject_id", using: :btree
+
+  create_table "student_standards", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "standard_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_standards", ["standard_id"], name: "index_student_standards_on_standard_id", using: :btree
+  add_index "student_standards", ["student_id"], name: "index_student_standards_on_student_id", using: :btree
 
   create_table "students", force: true do |t|
     t.integer  "user_id"
@@ -39,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160614095411) do
   end
 
   create_table "subjects", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

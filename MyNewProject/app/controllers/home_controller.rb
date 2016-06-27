@@ -43,6 +43,12 @@ class HomeController < ApplicationController
     end
     def listing
         @users = User.all.order("id desc")
+        respond_to do |format|
+            format.html
+            format.xml{render :xml => @user}
+            format.json{render :json => @user}
+
+        end
     end
 
 	def check_user
@@ -88,11 +94,11 @@ class HomeController < ApplicationController
         @blogs = Blog.all.order("id desc")
     end
     def write_mail
-        @comment = Comment.new
+        # @comment = Comment.new
         @user = User.find(params[:id])
     end
     def send_mail
-        @comment = Comment.new
+        # @comment = Comment.new
         @user = User.find(params[:id])
         UserMailer.welcome(@user.email,@user.name,params[:message]).deliver
         flash[:notice] = "Message sent successfully..."

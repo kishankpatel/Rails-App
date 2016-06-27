@@ -2,8 +2,8 @@ class UserMailer < ActionMailer::Base
   default from: "kishanptl.kp@gmail.com"
   def welcome(tomail,username,msg)
   	@user = username
-  	@msg = msg
-  	# @txt = params[:name]
+  	$msg = msg
+  	# cookies[:msg] = msg
 	mail(:to=>tomail,
 		:subject=>"welcome")
 	end

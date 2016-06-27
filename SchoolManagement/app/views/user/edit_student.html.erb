@@ -1,0 +1,51 @@
+<div class="show_content">
+	<%= form_for @student, url: "/create_student", method: 'patch' do |f| %> 
+		<table >
+			<tr>
+				<th>Name :</th>
+				<td><%= f.text_field :name, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<th>Roll :</th>
+				<td><%= f.text_field :roll, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<th>Class :</th>
+				<td><%= f.select("standard", StandardSubject.all.collect {|p| [ p.standard.name ] }) %></td>
+			</tr>
+			<tr>
+				<th>Subject :</th>
+				<td id='prefill_subject'></td>
+			</tr>
+			<tr>
+				<th>Gender :</th>
+				<td><%= f.text_field :gender, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<th>Mob :</th>
+				<td><%= f.text_field :mobile, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<th>Email :</th>
+				<td><%= f.text_field :email, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<th>Address :</th>
+				<td><%= f.text_area :address, class: 'input_text', required: true %></td>
+			</tr>
+			<tr>
+				<td><%= f.submit "Update", class: 'green_btn' %></td>
+				<td><%= link_to "Cencle", "/student_details", class: 'green_btn' %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	function change_subject(std_id){
+		var url = "/list_subjects/"+b_id;
+		$.ajax({url: url, success: function(result){
+        	$("#prefill_subject").html(result);
+    	}});
+	}
+</script>
